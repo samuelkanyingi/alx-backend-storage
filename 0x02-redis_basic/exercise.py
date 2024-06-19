@@ -37,7 +37,7 @@ class Cache:
     def __init__(self):
         self._redis = redis.Redis()
         self._redis.flushdb()
-    
+
     @count_calls
     @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
@@ -85,5 +85,7 @@ if __name__ == "__main__":
     s3 = cache.store("third")
     print(s3)
 
-    inputs = cache._redis.lrange("{}:inputs".format(cache.store.__qualname__), 0, -1)
-    outputs = cache._redis.lrange("{}:outputs".format(cache.store.__qualname__), 0, -1)
+    inputs = cache._redis.lrange("{}:inputs".format(
+        cache.store.__qualname__), 0, -1)
+    outputs = cache._redis.lrange("{}:outputs".format(
+        cache.store.__qualname__), 0, -1)
