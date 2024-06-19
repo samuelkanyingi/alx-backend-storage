@@ -45,8 +45,7 @@ def get_page(url: str) -> str:
 
 
 if __name__ == "__main__":
-    url =
-    "http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.com"
+    url = "http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.com"
 
     print(get_page(url))  # First request (will fetch and cache)
     print(get_page(url))  # Second request (will use cached result)
